@@ -1,0 +1,4 @@
+#! /bin/bash
+# Display the contents of the given personal script
+
+cat ~/bin/$1

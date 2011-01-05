@@ -1,0 +1,4 @@
+#! /bin/bash
+# Grep in .py files only. (Ignore .pyc, for instance)
+
+grep -n --color=auto "$*" `find . -iname '*.py'`

@@ -1,0 +1,6 @@
+#! /bin/bash
+# Start Konsole in the current directory, silently
+
+konsole --workdir `pwd` >/dev/null 2>&1 &
+disown
+

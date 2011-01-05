@@ -1,0 +1,6 @@
+#! /bin/bash
+# Start Konqueror in the current directory, silently
+
+konqueror . >/dev/null 2>&1 &
+disown
+

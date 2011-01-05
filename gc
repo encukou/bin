@@ -1,0 +1,4 @@
+#! /bin/bash
+# Shortcut to `git commit`
+
+git commit $*

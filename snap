@@ -1,0 +1,11 @@
+#! /bin/bash
+# Take a snapshot with the laptop camera
+# CAREFUL! Outputs a PNG file
+
+DIR=`mktemp -d`
+pushd $DIR >/dev/null
+mplayer tv:// -frames 10 -vo png >/dev/null 2>&1
+cat *010.png
+rm *
+popd
+rmdir $DIR

@@ -1,0 +1,4 @@
+#! /bin/bash
+# Pause a program given by name. Resume with `+`.
+
+killall -STOP $1

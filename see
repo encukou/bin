@@ -1,0 +1,4 @@
+#! /bin/bash
+# See through the laptop's eyes
+
+mplayer tv:// $*

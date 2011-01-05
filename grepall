@@ -1,0 +1,4 @@
+#! /bin/bash
+# Grep recursively, in color. No options taken, everything is searched for.
+
+grep -rn --color=auto "$*" .

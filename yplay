@@ -1,0 +1,4 @@
+#! /bin/bash
+# Play a downloaded Youtube video
+
+mplayer /home/petr/big/video/youtube/$1*

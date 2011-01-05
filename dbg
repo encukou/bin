@@ -1,0 +1,4 @@
+#! /bin/bash
+# Open the given program in gdb. Arguments are used for the program, not gdb itself.
+
+gdb --args "$@"

@@ -1,0 +1,4 @@
+#! /bin/bash
+# View the complete git history of the current repo
+
+gitk --all $*

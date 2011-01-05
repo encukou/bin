@@ -1,0 +1,4 @@
+#! /bin/bash
+# Shortcut for `git stash`
+
+git stash

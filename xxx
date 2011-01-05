@@ -1,0 +1,4 @@
+#! /bin/bash
+# Grep for XXXs in .py files, and give their rough count
+
+grepy XXX; grepy XXX|wc -l

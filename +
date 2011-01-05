@@ -1,0 +1,4 @@
+#! /bin/bash
+# Resume a program paused by `-`
+
+killall -CONT $1

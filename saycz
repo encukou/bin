@@ -1,0 +1,5 @@
+#! /bin/bash
+# Say stuff in Czech
+
+awk '/^[^\!]/{gsub(/'\''/,"'\''\\'\'''\''");system("echo '\''" $0 "'\''|iconv -f utf8 -t ISO8859-2 |text2wave -eval \"(voice_czech_ph)\">tmp.wav;mplayer tmp.wav")} /^[\!]/{gsub(/'\''/,"'\''\\'\'''\''");system("echo '\''" $0 "'\''|iconv -f utf8 -t ISO8859-2 |text2wave -eval \"(voice_kal_diphone)\">tmp.wav;mplayer tmp.wav")}'
+

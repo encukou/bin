@@ -1,0 +1,5 @@
+#! /bin/bash
+# Convert letters to the mobile phone keys they're on
+# (I have my nick in my number)
+
+echo $* | tr 'abcdefghijklmnopqrstuvwxyz' '22233344455566677778889999'

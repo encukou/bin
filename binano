@@ -1,0 +1,5 @@
+#! /bin/bash
+# Edit the given personal script (with Nano). Also makes it executable.
+
+nano ~/bin/$1
+chmod +x ~/bin/$1

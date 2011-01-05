@@ -1,0 +1,24 @@
+#! /usr/bin/python3
+
+"""Prints the Unicode code points and names for arguments.
+Usage: uwhois <some string>
+"""
+
+import unicodedata
+import sys
+
+if len(sys.argv) == 1:
+    print(__doc__.replace('uwhois', sys.argv[0]))
+else:
+    if sys.argv[1:] == ['-']:
+        words = sys.stdin
+    else:
+        words = sys.argv[1:]
+    for word in words:
+        for letter in word:
+            try:
+                display, name = letter, unicodedata.name(letter)
+            except ValueError:
+                display, name = ' ', repr(letter)
+            print('U+%04X' % ord(letter), display, '(' + unicodedata.category(letter) + '):', name)
+        print()
