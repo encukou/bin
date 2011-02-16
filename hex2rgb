@@ -1,0 +1,15 @@
+#! /usr/bin/env python
+
+"""Given arguments in the form "2e6686", converts to RGB in [0,1] range
+
+Basically, decodes from hex and divides the byte values by 255
+
+$ hex2rgb 2e6686ff 18aaabff
+2e6686ff: [0.1803921568627451, 0.40000000000000002, 0.52549019607843139, 1.0]
+18aaabff: [0.094117647058823528, 0.66666666666666663, 0.6705882352941176, 1.0]
+"""
+
+import sys
+
+for arg in sys.argv[1:]:
+    print arg + ':', [int(arg[i:i + 2], 16) / 255. for i in range(0, len(arg), 2)]
