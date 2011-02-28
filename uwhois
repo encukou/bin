@@ -20,5 +20,10 @@ else:
                 display, name = letter, unicodedata.name(letter)
             except ValueError:
                 display, name = ' ', repr(letter)
-            print('U+%04X' % ord(letter), display, '(' + unicodedata.category(letter) + '):', name)
+            nfd = unicodedata.normalize('NFD', letter)
+            if nfd != letter:
+               extra = "(NFD: %s)" % ', '.join('U+%04X %s' % (ord(c), unicodedata.name(c)) for c in nfd)
+            else:
+               extra = ''
+            print('U+%04X' % ord(letter), display, '(' + unicodedata.category(letter) + '):', name, extra)
         print()
