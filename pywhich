@@ -1,0 +1,30 @@
+#! /usr/bin/env python
+
+"""Show the path of the given Python module.
+"""
+
+import sys
+
+if len(sys.argv) != 2:
+    print 'Print out the path of the given Python module'
+    print 'Usage: %s FILENAME' % sys.argv[0]
+    exit(1)
+
+name = sys.argv[1]
+
+try:
+    module = __import__(name)
+except ImportError:
+    print>>sys.stdout, '%s is not importable' % name
+    exit(1)
+
+try:
+    modulepath = module.__file__
+except AttributeError:
+    print>>sys.stdout, '%s is a built-in module' % name
+    exit(1)
+
+if modulepath.endswith('.pyc'):
+    print modulepath[:-1]
+else:
+    print modulepath

@@ -1,0 +1,4 @@
+#! /bin/bash
+# Forward the given port using UPnP
+
+upnpc -r $1 tcp

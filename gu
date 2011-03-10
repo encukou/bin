@@ -1,0 +1,4 @@
+#! /bin/sh
+# Shortcut to `git gui`
+
+git gui $*

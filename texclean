@@ -1,0 +1,4 @@
+#! /bin/bash
+# Get rid of TeX cruft
+
+rm *.aux *.bbl *.log *.toc *.ttt *.blg

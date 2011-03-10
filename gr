@@ -1,4 +1,4 @@
 #! /bin/bash
 # Start git interactive rebase (from origin)
 
-git rebase -i origin
+git rebase -i --autosquash origin/master
