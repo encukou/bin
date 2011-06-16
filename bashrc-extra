@@ -1,0 +1,43 @@
+# This is meant to be sourced at the end of the system-supplied ~/.bashrc
+
+# Yeah I'm a loser I know
+export VISUAL=nano
+
+# Make a directory & cd to it immediately
+function mcd {
+  mkdir -p $1 && cd $1
+}
+
+# I like opening stuff with `open`
+alias open="kde-open 2> /dev/null > /dev/null"
+
+
+### The prompt
+
+if [ "$VIRTUAL_ENV" ]; then
+  venv="("$(basename $VIRTUAL_ENV)")"
+else
+  venv=""
+fi
+if [ `whoami` = petr ]; then
+  # Use my ASCII art logo for the username :)
+  username='[\[\e[1;31m\]/\[\e[1;36m\]/\[\e[1;33m\]/\[\e[0m\]]'
+else
+  username=`whoami`
+fi
+
+export PS1=$venv$username@'\[\e[0;32m\]\h\[\e[0m\]:\w\$ '
+export PS2=$venv$username'> '
+
+
+## KDE development stuff
+
+export PATH=$HOME/kde/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/kde/lib:$LD_LIBRARY_PATH
+
+
+## Various path settings
+
+export PATH=$HOME/bin:$PATH
+export PATH=/usr/lib/ccache:$PATH
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
