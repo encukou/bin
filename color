@@ -1,0 +1,5 @@
+#! /bin/bash
+# Colorize occurrences of a given regular expression
+# A vdiff helper (see http://catb.org/jargon/html/V/vgrep.html)
+
+grep --color -C99999999 $*

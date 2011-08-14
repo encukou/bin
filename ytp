@@ -1,0 +1,5 @@
+#! /bin/bash
+# Play a video downloaded by `yt`
+
+cd ~/big/video/youtube
+mplayer $@*
