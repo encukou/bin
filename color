@@ -1,5 +1,7 @@
 #! /bin/bash
 # Colorize occurrences of a given regular expression
-# A vdiff helper (see http://catb.org/jargon/html/V/vgrep.html)
+# A vgrep helper (see http://catb.org/jargon/html/V/vgrep.html)
 
-grep --color -C99999999 $*
+# From http://unix.stackexchange.com/questions/366/convince-grep
+
+grep --color -E '$|'"$@"

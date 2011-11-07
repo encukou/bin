@@ -2,6 +2,4 @@
 # Execute something in another directory
 # Usage: at <dir> <program> [arguments]
 
-cd $1
-shift
-$*
+cd $1 && shift && $*
