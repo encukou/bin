@@ -11,7 +11,7 @@
 # A more complex solution with lots of bells and whistles may be found at:
 #   http://pypi.python.org/pypi/virtualenvwrapper
 
-rcfile=`tempfile`
+rcfile=/tmp/bashrc-@.$$.tmp
 echo ". ~/dev/virtualenvs/$1/bin/activate" >> $rcfile
 echo ". ~/.bashrc" >> $rcfile
 bash --rcfile $rcfile
