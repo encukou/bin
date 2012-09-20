@@ -1,5 +1,5 @@
 #! /bin/bash
-# Rebase a branch outside of the working tree
+# Out-Of-Tree Rebase: rebase a branch without touching the working tree
 # The work is done in a temporary repository
 
 tempdir=/tmp/oot-rebase-$$
@@ -29,23 +29,16 @@ fi
 
 echo Rebasing $branch to $upstream
 
-echo setup temporary directory...
+set -x
+
 mkdir $tempdir
 cd $tempdir
 
-echo initialize Git repo in temp directory...
 git init && \
-echo "Set up alternates so we don't need to copy git objects"... && \
 echo $sourcerepo/.git/objects > .git/objects/info/alternates && \
-echo Fetch our two branches... && \
 git fetch -n $sourcerepo $branch:$branch $upstream:$upstream && \
-echo Check out the working tree... && \
 git checkout $branch && \
-echo Do the rebase... && \
 git rebase $upstream "$@" && \
-echo Push back to our repo... && \
-git push -f $sourcerepo $branch:$branch && \
-echo done
+git push -f $sourcerepo $branch:$branch
 
-echo remove tempdir...
 rm -rf $tempdir
