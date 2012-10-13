@@ -2,5 +2,5 @@
 # Download a Youtube video to the appropriate place.
 
 #! /bin/bash
-cd ~/big/video/youtube ; ~/programs/youtube-dl/youtube-dl -o '%(id)s: [%(title)s] by %(uploader)s (downloaded %(epoch)s).%(ext)s' $*
+cd ~/big/video/youtube ; youtube-dl -o '%(id)s: [%(title)s] by %(uploader)s (downloaded %(epoch)s).%(ext)s' $*
 pwd

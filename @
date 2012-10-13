@@ -14,5 +14,5 @@
 rcfile=/tmp/bashrc-@.$$.tmp
 echo ". ~/dev/virtualenvs/$1/bin/activate" >> $rcfile
 echo ". ~/.bashrc" >> $rcfile
-bash --rcfile $rcfile
+(cd ~/dev/virtualenvs/$1) && bash --rcfile $rcfile
 rm $rcfile

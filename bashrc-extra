@@ -26,7 +26,7 @@ else
   username='\u'
 fi
 
-export PS1=$venv$username@"\[\e[0;36m\]\h\[\e[0m\]:\w\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/{\[\e[1;32m\]\1\[\e[0m\]}/')\$ "
+export PS1=$venv$username@"\[\e[0;32m\]\h\[\e[0m\]:\w\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/{\[\e[1;32m\]\1\[\e[0m\]}/')\$ "
 export PS2=$venv$username'> '
 
 
@@ -40,4 +40,15 @@ export LD_LIBRARY_PATH=$HOME/kde/lib:$LD_LIBRARY_PATH
 
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/lib/ccache:$PATH
+export PATH=/usr/local/texlive/2012/bin/x86_64-linux:$PATH
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+export MANPATH=/usr/local/texlive/2012/texmf/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2012/texmf/doc/info:$INFOPATH
+
+## History modifications
+
+HISTCONTROL=erasedups
+HISTFILESIZE=10240
+HISTSIZE=10240
+shopt -s histappend

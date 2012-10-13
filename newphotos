@@ -2,7 +2,7 @@
 # Move pistures from /media/disk/ to an appropriate dated directory
 
 export photodir=/home/petr/pictures/photos/dny/`date +%Y%m%d`
-export sourcedir=/media/disk/DCIM/100CANON/
+export sourcedir=/media/3737-6139/DCIM/101CANON/
 echo Directory: $photodir
 mkdir $photodir
 echo Moving `ls $sourcedir|wc -l` pics from $sourcedir

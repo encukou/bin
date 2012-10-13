@@ -2,4 +2,6 @@
 # Play a video downloaded by `yt`
 
 cd ~/big/video/youtube
-mplayer $@*
+filename=$1
+shift
+mplayer $filename* "$@"
