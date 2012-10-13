@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# Play me some music.
+
+while true; do
+  mplayer -playlist <(find ~/music/collection | sort -R)
+done
