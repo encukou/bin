@@ -1,4 +1,4 @@
 #! /bin/bash
-# Grep for XXXs in .py files, and give their rough count
+# Grep for XXXs in the current Git repo, and give their rough count
 
-grepy XXX; grepy XXX|wc -l
+git grep XXX; git grep XXX|wc -l

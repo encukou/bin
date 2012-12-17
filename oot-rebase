@@ -2,6 +2,8 @@
 # Out-Of-Tree Rebase: rebase a branch without touching the working tree
 # The work is done in a temporary repository
 
+# Introduced here: http://stackoverflow.com/a/12481546/99057
+
 tempdir=/tmp/oot-rebase-$$
 sourcerepo=$(git rev-parse --show-toplevel)
 branch=$1
