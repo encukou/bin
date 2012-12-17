@@ -1,0 +1,41 @@
+#! /usr/bin/env python
+
+"""Usage: colorize <color>
+
+Colorize standard input.
+Colorizes each line separately, and tries to write each line in a single
+syscall, so interleaving several colorized streams into one terminal doesn't
+result in a giant mess.
+
+<color> is a color number: 1 for red, 2 for green, etc.
+
+Example: some_command 2> >(colorize 1) | colorize 4
+    colors stdout blue and stderr red
+"""
+
+import os
+import sys
+
+COLOR = '\x1b[%sm'
+RESET = COLOR % 0
+
+def colorfunc(color):
+    def colorize(string):
+        return COLOR % color + string + RESET
+    return colorize
+
+try:
+    color = int(sys.argv[1]) + 30
+except (IndexError, ValueError):
+    print >>sys.stderr, __doc__
+    exit(2)
+
+colorize = colorfunc(color)
+
+for line in sys.stdin:
+    if line.endswith('\n'):
+        # Make sure 
+        output = colorize(line[:-1]) + line[-1]
+    else:
+        output = colorize(line)
+    sys.stdout.write(output)
