@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# To quickly compare two pieces of text:
+# 1. Put the first piece into CLIPBOARD (yo' old Ctrl+C)
+# 2. Put second piece into PRIMARY (i.e. just select it)
+# 3. Run this!
+
+colordiff -U3 "$@" <(xsel -b) <(xsel -p)
+
