@@ -3,5 +3,5 @@
 # Play me some music.
 
 while true; do
-  mplayer -playlist <(find ~/music/collection | sort -R)
+  mplayer -playlist <(find -L ~/music/collection | sort -R)
 done
