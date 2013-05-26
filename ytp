@@ -1,6 +1,8 @@
 #! /bin/bash
 # Play a video downloaded by `yt`
 
+set -ex
+
 cd ~/big/video/youtube
 filename=$1
 shift
