@@ -1,15 +1,18 @@
-#! /usr/bin/env bash -e -o pipefail
+#! /usr/bin/env bash
 # Out-Of-Tree Rebase: rebase a branch without touching the working tree
 # The work is done in a temporary repository
 
 # Introduced here: http://stackoverflow.com/a/12481546/99057
 
+set -e
+set -o pipefail
+
 tempdir=/tmp/oot-rebase-$$
 sourcerepo=$(git rev-parse --show-toplevel)
 branch=$1
-shift
+shift || :
 upstream=$1
-shift
+shift || :
 
 if [ "$branch" == "" ]; then
     echo "Out-of-tree rebase"
