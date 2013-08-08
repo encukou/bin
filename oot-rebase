@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash -e -o pipefail
 # Out-Of-Tree Rebase: rebase a branch without touching the working tree
 # The work is done in a temporary repository
 
@@ -36,11 +36,11 @@ set -x
 mkdir $tempdir
 cd $tempdir
 
-git init && \
-echo $sourcerepo/.git/objects > .git/objects/info/alternates && \
-git fetch -n $sourcerepo $branch:oot-rebase/$branch $upstream:oot-rebase/$upstream && \
-git checkout oot-rebase/$branch && \
-git rebase oot-rebase/$upstream "$@" && \
+git init
+echo $sourcerepo/.git/objects > .git/objects/info/alternates
+git fetch -n $sourcerepo $branch:oot-rebase/$branch $upstream:oot-rebase/$upstream
+git checkout oot-rebase/$branch
+git rebase oot-rebase/$upstream "$@"
 git push -f $sourcerepo oot-rebase/$branch:$branch
 
 rm -rf $tempdir
