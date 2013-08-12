@@ -34,7 +34,7 @@ colorize = colorfunc(color)
 
 for line in sys.stdin:
     if line.endswith('\n'):
-        # Make sure 
+        # Make sure the newline is not colorized
         output = colorize(line[:-1]) + line[-1]
     else:
         output = colorize(line)
