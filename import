@@ -1,0 +1,18 @@
+#! /bin/bash
+
+if [ "" = "$*" ]; then
+    echo 'ERROR: No mpodule specified' >&2
+
+    cat <<END
+import: Enter Python REPL with the given module(s) imported
+Usage: $0 MODULE [, MODULE2 [, MODULE3 ...]]
+
+Usage examples:
+    import re
+    import datetime
+    import re, time, csv
+END
+    exit 1
+else
+    python -ic "import $*; print($*)"
+fi
