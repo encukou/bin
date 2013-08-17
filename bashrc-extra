@@ -26,7 +26,7 @@ else
   username='\u'
 fi
 
-export PS1=$venv$username@"\[\e[0;32m\]\h\[\e[0m\]:\w\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/{\[\e[1;32m\]\1\[\e[0m\]}/')\$ "
+export PS1="$venv\u@\[\e[0;32m\]\h\[\e[0m\]:\w\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/{\[\e[1;32m\]\1\[\e[0m\]}/')\[\e[1;36m\]\$(git describe --always --abbrev=7 --dirty='\[\e[1;34m\]∗' --match='$^' --candidates=1 2> /dev/null)\[\e[0m\$ "
 export PS2=$venv$username'> '
 
 
