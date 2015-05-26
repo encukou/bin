@@ -2,6 +2,8 @@
 
 # Play me some music.
 
+export DISPLAY=  # don't want video and other shenanigans
+
 while true; do
   mplayer -playlist <(find -L ~/music/collection | sort -R)
 done
