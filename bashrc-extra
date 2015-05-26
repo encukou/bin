@@ -8,6 +8,12 @@ function mcd {
   mkdir -p $1 && cd $1
 }
 
+# Clone a repo & cd to it immediately
+function clone {
+  bn=$(basename $1)
+  git clone $1 && cd ${bn%%.git}
+}
+
 # I like opening stuff with `open`
 alias open="kde-open 2> /dev/null > /dev/null"
 
