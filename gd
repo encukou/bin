@@ -1,3 +1,3 @@
 #! /bin/bash
 
-git diff --color --patience $*
+git diff --patience $*
