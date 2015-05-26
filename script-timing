@@ -1,0 +1,6 @@
+#! /bin/bash
+# Record a console session, including timing info.
+# Output filenames are timestamps
+
+script --timing=$(date -Is).timing $(date -Is).script
+
