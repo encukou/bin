@@ -58,3 +58,31 @@ HISTCONTROL=erasedups
 HISTFILESIZE=10240
 HISTSIZE=10240
 shopt -s histappend
+
+## 'import' alias
+
+function import {
+    if [ -t 0 ] ; then
+        if [ "" = "$*" ]; then
+            echo 'import: No mpodule specified' >&2
+
+            cat >&2 <<END
+import: Enter Python REPL with the given module(s) imported
+Usage (from an interactive shell only):
+    $0 MODULE [, MODULE2 [, MODULE3 ...]]
+
+Usage examples:
+    import re
+    import datetime
+    import re, time, csv
+END
+            false
+        else
+            python -ic "import $*; print($*)"
+        fi
+    else
+        echo $0: 'This is Bash, not Python' >&2
+        echo 'Use /usr/bin/import if you really need the obnoxious ImageMagick tool' >&2
+        exit 1
+    fi
+}
