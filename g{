@@ -1,4 +1,4 @@
 #! /bin/bash
-# Shortcut for `git stash`
+# Shortcut for `git stash -u`
 
-git stash
+git stash -u
