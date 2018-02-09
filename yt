@@ -1,6 +1,6 @@
-#! /bin/bash
+#! /bin/bash -ex
 # Download a Youtube video to the appropriate place.
 
 #! /bin/bash
-cd ~/big/video/youtube ; youtube-dl -o '%(id)s: [%(title)s] by %(uploader)s (downloaded %(epoch)s).%(ext)s' $*
+cd ~/big/video/youtube ; youtube-dl -o '%(id)s: [%(title)s] by %(uploader)s (downloaded %(epoch)s).%(format_id)s-%(autonumber)s.%(ext)s' $*
 pwd
