@@ -1,0 +1,4 @@
+#! /bin/bash
+# Fancy Git log, limited to 10 lines
+
+gloo -10

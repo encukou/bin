@@ -1,0 +1,4 @@
+#! /bin/bash
+# Use Windows spelling of `ls`. Sometimes arguably useful for beginners' workshops.
+
+ls

@@ -1,0 +1,4 @@
+#! /bin/bash
+# Fancy Git history graph with all branches
+
+glo --all "$@"

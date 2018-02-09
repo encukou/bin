@@ -1,0 +1,4 @@
+#! /usr/bin/bash
+# Use `cal` with Monday as first day
+
+/usr/bin/cal -m "$@"
