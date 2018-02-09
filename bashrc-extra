@@ -1,5 +1,7 @@
 # This is meant to be sourced at the end of the system-supplied ~/.bashrc
 
+unalias ll
+
 # Yeah I'm a loser I know
 export VISUAL=nano
 
