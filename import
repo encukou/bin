@@ -14,5 +14,5 @@ Usage examples:
 END
     exit 1
 else
-    python -ic "import $*; print($*)"
+    python3 -ic "import $*; print($*, sep='\n')"
 fi
