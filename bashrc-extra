@@ -38,12 +38,6 @@ export PS1="$venv\u@\[\e[0;32m\]\h\[\e[0m\]:\w\$(git branch 2> /dev/null | grep 
 export PS2=$venv$username'> '
 
 
-## KDE development stuff
-
-export PATH=$HOME/kde/bin:$PATH
-export LD_LIBRARY_PATH=$HOME/kde/lib:$LD_LIBRARY_PATH
-
-
 ## Various path settings
 
 export PATH=$HOME/bin:$PATH
