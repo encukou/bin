@@ -1,4 +1,0 @@
-#! /bin/bash
-# Connect to the shool computer
-
-ssh xvikto02@eva.fit.vutbr.cz $*

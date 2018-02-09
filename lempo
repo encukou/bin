@@ -1,4 +1,0 @@
-#! /bin/bash
-# Start the virtual machine named Lempo
-
-VirtualBox -startvm Lempo

@@ -1,6 +1,0 @@
-#! /bin/bash
-# Flip the screen for reading comics
-
-xrandr -o left
-PS1='Press Ctrl+D to exit! ' bash --norc
-xrandr -o normal
