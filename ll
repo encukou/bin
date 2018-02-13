@@ -1,4 +1,4 @@
 #! /bin/bash
 # Long directory listing.
 
-ls -a -l --color "$@"
+exa -a -l --git --color-scale --binary --time-style=long-iso "$@"
