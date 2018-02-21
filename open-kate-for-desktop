@@ -1,0 +1,4 @@
+#! /bin/bash -ex
+
+current_desktop=$(xprop -root _NET_CURRENT_DESKTOP | sed -e's/[^=]*= //')
+kate -n -s desktop-$(xprop -root _NET_CURRENT_DESKTOP | sed -e's/[^=]*= //')

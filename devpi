@@ -1,0 +1,2 @@
+#! /bin/bash
+~/dev/devpi/__venv__/bin/python ~/dev/devpi/__venv__/bin/devpi-server --port 3141 --serverdir ~/.devpi/server "$@"
