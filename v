@@ -66,6 +66,25 @@ def ensure_activated_venv():
                       abort=True)
         venv.create(venv_dir / NAME, with_pip=True)
 
+        reqs_path = venv_dir / 'requirements.txt'
+        if reqs_path.exists():
+            click.secho('A requirements.txt file exists. Contents:',
+                        fg='green', file=sys.stderr)
+            try:
+                with reqs_path.open(encoding='utf-8') as f:
+                    for line in f:
+                        click.echo('    ' + line.rstrip())
+            except UnicodeDecodeError:
+                click.secho(f'Cannot decode {reqs_path}',
+                            fg='red', file=sys.stderr)
+            else:
+                click.confirm(f'Install requirements from {reqs_path}?',
+                            abort=True)
+                subprocess.run([venv_dir / NAME / 'bin/pip', 'install',
+                                '-r', reqs_path
+                               ],
+                               check=True)
+
     click.secho(f'Entering venv in {venv_dir}; Ctrl+D to exit',
                 fg='blue', file=sys.stderr)
     os.execv(
