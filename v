@@ -66,6 +66,11 @@ def ensure_activated_venv():
                       abort=True)
         venv.create(venv_dir / NAME, with_pip=True)
 
+        click.secho('Upgrading pip...', fg='blue', file=sys.stderr)
+        subprocess.run([venv_dir / NAME / 'bin/pip', 'install',
+                        '--upgrade', 'pip'],
+                        check=True)
+
         reqs_path = venv_dir / 'requirements.txt'
         if reqs_path.exists():
             click.secho('A requirements.txt file exists. Contents:',
