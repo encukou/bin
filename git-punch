@@ -1,0 +1,3 @@
+#! /usr/bin/bash -ex
+
+git push --force-with-lease "$@"
