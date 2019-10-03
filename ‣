@@ -5,5 +5,5 @@
 export DISPLAY=  # don't want video and other shenanigans
 
 while true; do
-  mplayer -playlist <(find -L ~/music/ | sort -R)
+  mplayer -novideo -playlist <(find -L ~/music/ | sort -R)
 done
