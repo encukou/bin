@@ -1,0 +1,6 @@
+#! /bin/bash
+
+# Pull from a pull request with the given number
+# (works for both GitHub and Pagure)
+
+git pull origin refs/pull/$1/head
