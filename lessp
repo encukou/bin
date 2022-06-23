@@ -1,0 +1,14 @@
+#! /usr/bin/python
+
+# Given `filename:lineno` as argument, open less at the given line.
+# Works with plain filename as well.
+
+import os
+import sys
+
+argv = list(sys.argv)
+argv[0] = os.environ.get('PAGER', 'less')
+argv[1:2] = reversed([f'+{s}g' if i else s for i, s in enumerate(argv[1].rsplit(':', 1))])
+
+print(argv)
+os.execvp(argv[0], argv)
