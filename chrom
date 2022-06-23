@@ -1,0 +1,4 @@
+#! /bin/bash
+# Open Chromium in incognito mode
+
+chromium-browser --incognito

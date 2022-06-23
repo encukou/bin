@@ -1,0 +1,4 @@
+#! /bin/bash
+# Open a new window of gedit
+
+gedit -s "$@"
