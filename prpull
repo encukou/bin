@@ -1,6 +1,16 @@
 #! /bin/bash
 
-# Pull from a pull request with the given number
-# (works for both GitHub and Pagure)
+DOC="Pull the given Pull Request, assuming the 'origin' remote is a Pagure or GitHub repository"
 
-git pull origin refs/pull/$1/head
+number="$1"
+shift
+
+if [ "$number" == "" ]; then
+    echo "$DOC" >&2
+    echo "Usage: $0 PRNUMBER" >&2
+    exit 1
+fi
+
+set -ex
+
+git pull origin refs/pull/$number/head $*
