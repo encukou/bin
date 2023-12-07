@@ -1,3 +1,23 @@
 #! /bin/bash
+# Run the given command on every change to a tracked
+# file (roughly: Ctrl+S in an editor). Example:
+#
+#    git entr make test
+#
+# Needs entr: http://eradman.com/entrproject/
+#
+# Useful entr options (see `man entr` for more):
+# -cc: Clear screen (and scrollback) before running,
+#      to make sure I'm looking an the latest
+#      iteration (and make terminal search reliable)
+# -s 'command': Run a shell pipeline rather than
+#      a single command
+# -r:  stop and restart the long-running command if
+#      it's still running when a file is changed
+#
+# Example:
+#
+#    git entr -ccrs 'make website && ./run-server'
+
 
 git ls-files -cdmo --exclude-standard | entr -d "$@"
