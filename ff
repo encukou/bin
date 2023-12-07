@@ -1,4 +1,4 @@
 #! /bin/bash
 # Start Firefox with the default profile
 
-firefox -P default &
+nice -n2 firefox -P default &

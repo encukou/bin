@@ -1,4 +1,4 @@
 #! /bin/bash
-# Start the real make with 6 simultaneous jobs
+# With N CPUs, run `make` with N+2 simultaneous jobs, but with low priority
 
-/usr/bin/make -j6 "$@"
+DISPLAY= nice ionice /usr/bin/make -j$(( $(nproc)+2 )) "$@"
