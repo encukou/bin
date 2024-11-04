@@ -1,0 +1,7 @@
+#! /bin/bash -ex
+
+# (re-)compile CPython and run the given test.
+# (To run more test, or all, see the `t` command.)
+
+make
+DISPLAY= najs ./python -m test -uall -w "$@"

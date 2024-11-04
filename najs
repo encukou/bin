@@ -1,0 +1,5 @@
+#! /bin/bash -ex
+
+# Run a command in the background.
+
+time nice ionice chrt -b 0 "$@"
