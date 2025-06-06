@@ -1,0 +1,21 @@
+#! /bin/bash
+
+DOC="Add the given GitHub fork as a remote. Assumes the current directory name is the name of the repo.
+If remote already exists, fetch from it instead of adding it."
+
+name="$1"
+shift
+
+if [ "$name" == "" ]; then
+    echo "$DOC" >&2
+    echo "Usage: $0 USERNAME" >&2
+    exit 1
+fi
+
+set -ex
+
+if git config "remote.$name.url"; then
+    git fetch $name
+else
+    git remote add -f $name git@github.com:$name/$(basename $PWD) || git remote rm $name
+fi

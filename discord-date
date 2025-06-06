@@ -1,0 +1,4 @@
+#! /bin/bash
+
+date -d "$1" +'<t:%s:R>'
+
