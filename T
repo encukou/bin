@@ -4,4 +4,4 @@
 # (To run more test, or all, see the `t` command.)
 
 make
-DISPLAY= najs ./python -m test -uall -w "$@"
+LC_TIME=C DISPLAY= najs ./python -m test -uall -w "$@"
