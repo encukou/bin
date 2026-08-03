@@ -17,5 +17,5 @@ set -ex
 if git config "remote.$name.url"; then
     git fetch $name
 else
-    git remote add -f $name git@github.com:$name/$(basename $PWD) || git remote rm $name
+    git remote add -f --no-tags $name git@github.com:$name/$(basename $PWD) || git remote rm $name
 fi
