@@ -1,0 +1,29 @@
+#! /usr/bin/python
+
+import sys
+import subprocess
+
+proc = subprocess.run(['xsel'], capture_output=True, encoding='utf-8', check=True)
+arg = proc.stdout.strip()
+
+if arg.startswith(('p://', 'ps://')):
+    arg = 'htt' + arg
+if arg.startswith(('tp://', 'tps://')):
+    arg = 'ht' + arg
+if arg.startswith(('ttp://', 'ttps://')):
+    arg = 'h' + arg
+
+if arg.startswith(('http://', 'https://')):
+    subprocess.run(['firefox', '-P', 'default', arg])
+elif arg.startswith('gh:'):
+    subprocess.run(['firefox', '-P', 'default', f'https://github.com/python/cpython/issues/{arg[3:]}'])
+elif arg.startswith('#'):
+    subprocess.run(['firefox', '-P', 'default', f'https://github.com/python/cpython/issues/{arg[1:]}'])
+else:
+    subprocess.run([
+        'notify-send',
+        '-i', 'firefox',
+        '-a', 'ff',
+        f"Not a URL: {arg}",
+    ])
+    exit(1)
