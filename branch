@@ -1,0 +1,4 @@
+#! /bin/bash -ex
+
+git fetch origin
+git switch -c $* origin/main
