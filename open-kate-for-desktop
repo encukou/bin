@@ -1,4 +1,7 @@
 #! /bin/bash -ex
 
 current_desktop=$(xprop -root _NET_CURRENT_DESKTOP | sed -e's/[^=]*= //')
-kate -n -s desktop-$(xprop -root _NET_CURRENT_DESKTOP | sed -e's/[^=]*= //')
+if [ ${#current_desktop} -ge 5 ]; then
+    current_desktop=0
+fi
+kate -n -s desktop-$current_desktop
